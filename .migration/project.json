@@ -1,0 +1,12 @@
+{
+  "sites": {
+    "projecttimeless": {
+      "previewOrg": "saiprasanthabburi",
+      "previewSite": "projecttimeless",
+      "aemSitePath": "/content/projecttimeless",
+      "aemAssetsFolderPath": "/content/dam/projecttimeless",
+      "aemSiteName": "projecttimeless",
+      "aemSiteTitle": "Project Timeless"
+    }
+  }
+}
