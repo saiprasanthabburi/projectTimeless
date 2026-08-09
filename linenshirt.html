@@ -965,29 +965,9 @@
           <summary>Watch behind the scenes <span class="arrow">&rarr;</span></summary>
           <div class="mood-board-panel">
             <video style="width: 100%;" id="videoPlayer" controls playsinline webkit-playsinline
-              preload="metadata"
-              poster="https://delivery-p127268-e1369408.adobeaemcloud.com/adobe/assets/urn:aaid:aem:eb654b5b-e04d-4f81-93b2-7e066dd7645e/as/thumbnail-rendition-0015.avif?width=1024&quality=65&assetName=thumbnail-rendition-0015.jpg">
+              src="https://video.ralphlauren.com/v2/2025/04/20250415-spring-linen-shirt-pdp/2-Full-NA-DSK.mp4"
+              autoplay muted loop playsinline>
             </video>
-            <script>
-              const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
-                (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-
-              const dashUrl = "https://delivery-p127268-e1369408.adobeaemcloud.com/adobe/assets/urn:aaid:aem:002e8e62-573c-460a-a596-c0a4b3c76358/manifest.mpd";
-              const hlsUrl = "https://delivery-p127268-e1369408.adobeaemcloud.com/adobe/assets/urn:aaid:aem:002e8e62-573c-460a-a596-c0a4b3c76358/manifest.m3u8";
-
-              const video = document.getElementById("videoPlayer");
-              console.log(video);
-
-              if (isIOS) {
-                // HLS
-                video.src = hlsUrl;
-                video.play();
-              } else {
-                // DASH
-                const player = dashjs.MediaPlayer().create();
-                player.initialize(video, dashUrl, true);
-              }
-            </script>
           </div>
         </details>
       </div>
