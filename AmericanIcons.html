@@ -552,15 +552,12 @@
       letter-spacing: 0.02em;
     }
 
-    /* Highlight the dot that matches the current URL hash */
-    #outfit-1:target ~ .style-slider__dots .style-slider__dot:nth-child(1),
-    #outfit-2:target ~ .style-slider__dots .style-slider__dot:nth-child(2),
-    #outfit-3:target ~ .style-slider__dots .style-slider__dot:nth-child(3) {
-      background: var(--navy);
-    }
-
-    /* Make the first dot active by default before any hash is set */
-    .style-slider__dots .style-slider__dot:nth-child(1) {
+    /* Active dot — the .active class is set from the slider's scroll position
+       (see the IntersectionObserver script) so it stays in sync on both swipe
+       and dot click. Before JS runs, the first dot shows active as a fallback;
+       once JS adds .js-dots to the slider, .active takes over entirely. */
+    .style-slider:not(.js-dots) .style-slider__dot:first-child,
+    .style-slider__dot.active {
       background: var(--navy);
     }
 
@@ -1293,6 +1290,37 @@
         document.getElementById(tab.getAttribute('data-tab')).classList.add('active');
       });
     });
+
+    // Keep the "Style it" carousel dots in sync with the current slide,
+    // whether the slide changes by swipe or by clicking a dot.
+    (function () {
+      var slider = document.querySelector('.style-slider');
+      if (!slider) return;
+      var track = slider.querySelector('.style-slider__track');
+      var slides = slider.querySelectorAll('.style-slider__slide');
+      var dots = slider.querySelectorAll('.style-slider__dot');
+      if (!track || !slides.length || dots.length !== slides.length) return;
+
+      // Signal to CSS that JS is driving the active dot.
+      slider.classList.add('js-dots');
+
+      function setActive(index) {
+        dots.forEach(function (dot, i) {
+          dot.classList.toggle('active', i === index);
+        });
+      }
+      setActive(0);
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            setActive([].indexOf.call(slides, entry.target));
+          }
+        });
+      }, { root: track, threshold: 0.6 });
+
+      slides.forEach(function (slide) { observer.observe(slide); });
+    })();
   </script>
 
 </body>
