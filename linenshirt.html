@@ -29,8 +29,17 @@
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     }
 
-    .flip-card:hover .flip-card-inner {
+    /* .flip-card:hover .flip-card-inner {
       transform: rotateY(180deg);
+    } */
+    @media (hover: none) {
+      .flip-card {
+        cursor: pointer;
+      }
+
+      .flip-card.flipped .flip-card-inner {
+        transform: rotateY(180deg);
+      }
     }
 
     .flip-card-front,
@@ -44,7 +53,7 @@
 
     .flip-card-back {
       font-size: 14px;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.0rem;
       color: var(--navy);
       transform: rotateY(180deg);
       display: flex;
@@ -1249,14 +1258,33 @@
 
   <script>
     document.querySelectorAll('.colorway').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        document.querySelectorAll('.colorway').forEach(function (b) { b.classList.remove('active'); });
-        btn.classList.add('active');
-        var link = document.getElementById('colorway-link');
-        link.href = btn.getAttribute('data-href');
-        link.textContent = "View " + btn.getAttribute('data-color') + "'s product page →";
-      });
+      //btn.addEventListener('click', function () {
+        //document.querySelectorAll('.colorway').forEach(function (b) { b.classList.remove('active'); });
+        //btn.classList.add('active');
+        //var link = document.getElementById('colorway-link');
+        //link.href = btn.getAttribute('data-href');
+        //link.textContent = "View " + btn.getAttribute('data-color') + "'s product page →";
+      //});
     });
+
+    if (window.matchMedia('(hover: none)').matches) {
+      var flipCards = document.querySelectorAll('.flip-card');
+      flipCards.forEach(function (card) {
+        card.addEventListener('click', function (e) {
+          e.stopPropagation();
+          var wasFlipped = card.classList.contains('flipped');
+          flipCards.forEach(function (c) { c.classList.remove('flipped'); });
+          if (!wasFlipped) {
+            card.classList.add('flipped');
+          }
+        });
+      });
+
+      document.addEventListener('click', function () {
+        flipCards.forEach(function (c) { c.classList.remove('flipped'); });
+      });
+    }
+    
     document.querySelectorAll('.tab').forEach(function (tab) {
       tab.addEventListener('click', function () {
         document.querySelectorAll('.tab').forEach(function (t) { t.classList.remove('active'); });
