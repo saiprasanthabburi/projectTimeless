@@ -52,7 +52,7 @@
     }
 
     .flip-card-back {
-      font-size: 14px;
+      font-size: 13px;
       letter-spacing: 0.0rem;
       color: var(--navy);
       transform: rotateY(180deg);
@@ -61,6 +61,7 @@
       justify-content: center;
       font-weight: bold;
       padding: 0px 10px 0px 10px;
+      background: #f0efef;
 
     }
 
@@ -514,7 +515,7 @@
     }
 
     .mood-board-panel p {
-      background: #ffffff;
+      background: #f0efef;
       min-height: 100px;
       padding: 10px;
     }
@@ -617,6 +618,9 @@
     .tag-buy {
       background: #C1611C;
     }
+    .nearYou {
+      background-color: #0171bb;
+    }
 
     a.tag-buy {
       cursor: pointer;
@@ -648,7 +652,7 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 1px;
-      background: var(--rule);
+      /* background: var(--rule); */
       border: 1px solid var(--rule);
       margin-top: 18px;
     }
@@ -1007,7 +1011,7 @@
               </div>
               <div class="item shoes">
                 <a href="https://dtcralphlauren.scene7.com/is/image/PoloGSI/s7-1501172_lifestyle?$rl_1x1_pdp$"
-                  class="badge buy" target="_blank">Buy Now</a>
+                  class="badge buy" target="_blank">Online</a>
                 <a href="https://www.ralphlauren.com/men-footwear-shoes/heritage-aera-leather-suede-sneaker/100098546.html"
                   target="_blank">
                   <img
@@ -1017,7 +1021,7 @@
               </div>
               <div class="item watch">
                 <a href="https://www.ralphlauren.com/men-accessories-watches/42-mm-denim-polo-bear-steel-white-dial/562110.html"
-                  class="badge buy" target="_blank">Buy Now</a>
+                  class="badge buy" target="_blank">Online</a>
                 <a href="https://www.ralphlauren.com/men-accessories-watches/42-mm-denim-polo-bear-steel-white-dial/562110.html"
                   target="_blank">
                   <img src="https://dtcralphlauren.scene7.com/is/image/PoloGSI/s7-1394915_lifestyle?$rl_1x1_pdp$"
@@ -1074,13 +1078,14 @@
                   alt="T-Shirt">
               </div>
               <div class="item pants">
-                <span class="badge closet">Near You</span>
+                <a href="https://maps.google.com/maps?hl=en&f=q&q=109%20Prince%20Street,%20New%20York,%2010012,%20NY,%20US"
+                  class="badge nearYou" target="_blank">Near You</a>
                 <img src="https://dtcralphlauren.scene7.com/is/image/PoloGSI/s7-1277790_lifestyle?$rl_4x5_zoom$"
                   alt="Pants">
               </div>
               <div class="item shoes">
                 <a href="https://www.ralphlauren.com/men-footwear-shoes/heritage-aera-leather-suede-sneaker/100098546.html"
-                  class="badge buy" target="_blank">Buy Now</a>
+                  class="badge buy" target="_blank">Online</a>
                 <a href="https://www.ralphlauren.com/men-footwear-shoes/heritage-aera-leather-suede-sneaker/100098546.html"
                   target="_blank">
                   <img
@@ -1090,7 +1095,7 @@
               </div>
               <div class="item watch">
                 <a href="https://www.ralphlauren.com/men-accessories-watches/42-mm-denim-polo-bear-steel-white-dial/562110.html"
-                  class="badge buy" target="_blank">In Closet</a>
+                  class="badge closet" target="_blank">In Closet</a>
                 <a href="https://www.ralphlauren.com/men-accessories-watches/42-mm-denim-polo-bear-steel-white-dial/562110.html"
                   target="_blank">
                   <img src="https://dtcralphlauren.scene7.com/is/image/PoloGSI/s7-1336037_lifestyle?$rl_1x1_pdp$"
@@ -1239,15 +1244,12 @@
           </div>
         </details>
         <details class="mood-board">
-          <summary>Cotton source<span class="arrow">&rarr;</span></summary>
-          <div class="mood-board-panel">
-            <p>here we go for the last arrow dropdown</p>
-          </div>
-        </details>
-        <details class="mood-board">
           <summary>Carbon impact <span class="arrow">&rarr;</span></summary>
           <div class="mood-board-panel">
-            <p>here we go for the last arrow dropdown</p>
+            <p><span>Linen requires less water and fewer resources to grow, helping reduce the environmental impact of each shirt.</span></br>
+
+              <span>A naturally durable, breathable fabric, linen can support longer wear and a lower carbon footprint over its lifecycle.</span>
+            </p>
           </div>
         </details>
       </div>
